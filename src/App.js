@@ -1,4 +1,5 @@
 import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import "./App.css";
 
@@ -10,13 +11,21 @@ function App() {
   return (
     // BEM class naming convention
     <div className="app">
-      <Header />
-      <div className="app__page">
-        {/* Sidebar */}
-        <Sidebar />
-        {/* Recommended Video */}
-        <RecVids />
-      </div>
+      <Router>
+        <Header />
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <div className="app__page">
+                <Sidebar />
+                <RecVids />
+              </div>
+            }
+          />
+          <Route path="/search/:searchTerm" element={<h1>Search Page</h1>} />
+        </Routes>
+      </Router>
     </div>
   );
 }

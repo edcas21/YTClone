@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import "./Header.css";
 import {
   Apps,
@@ -10,6 +11,8 @@ import {
 import { Avatar } from "@mui/material";
 
 const Header = () => {
+  const [searchInput, setSearchInput] = useState('');
+
   return (
     <div className="header">
       <div className="header__left">
@@ -22,7 +25,7 @@ const Header = () => {
       </div>
 
       <div className="header__input">
-        <input type="text" placeholder="Search" />
+        <input onChange={e => setSearchInput(e.target.value)} value={searchInput} type="text" placeholder="Search" />
         <Search className="header__inputButton" />
       </div>
 
