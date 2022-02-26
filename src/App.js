@@ -5,6 +5,7 @@ import "./App.css";
 
 import Header from "./components/Header/Header";
 import RecVids from "./components/RecVids/RecVids";
+import SearchPage from "./components/SearchPage/SearchPage";
 import Sidebar from "./components/Sidebar/Sidebar";
 
 function App() {
@@ -23,7 +24,15 @@ function App() {
               </div>
             }
           />
-          <Route path="/search/:searchTerm" element={<h1>Search Page</h1>} />
+          <Route
+            path="/search/:searchTerm"
+            element={
+              <div className="app__page">
+                <Sidebar />
+                <SearchPage />
+              </div>
+            }
+          />
         </Routes>
       </Router>
     </div>

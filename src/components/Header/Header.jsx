@@ -11,22 +11,31 @@ import {
 import { Avatar } from "@mui/material";
 
 const Header = () => {
-  const [searchInput, setSearchInput] = useState('');
+  const [searchInput, setSearchInput] = useState("");
 
   return (
     <div className="header">
       <div className="header__left">
         <Menu />
-        <img
-          className="header__logo"
-          src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/YouTube_Logo_2017.svg/337px-YouTube_Logo_2017.svg.png"
-          alt="youtube logo"
-        />
+        <Link to="/">
+          <img
+            className="header__logo"
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/YouTube_Logo_2017.svg/337px-YouTube_Logo_2017.svg.png"
+            alt="youtube logo"
+          />
+        </Link>
       </div>
 
       <div className="header__input">
-        <input onChange={e => setSearchInput(e.target.value)} value={searchInput} type="text" placeholder="Search" />
-        <Search className="header__inputButton" />
+        <input
+          onChange={(e) => setSearchInput(e.target.value)}
+          value={searchInput}
+          type="text"
+          placeholder="Search"
+        />
+        <Link to={`/search/${searchInput}`}>
+          <Search className="header__inputButton" />
+        </Link>
       </div>
 
       <div className="header__icons">
